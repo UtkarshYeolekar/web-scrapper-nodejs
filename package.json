@@ -1,0 +1,25 @@
+{
+  "name": "web-scrapper-nodejs",
+  "version": "1.0.0",
+  "description": "web scrapping using nodejs",
+  "main": "server.js",
+  "dependencies": {
+    "cheerio": "1.0.0-rc.5",
+    "puppeteer": "8.0.0",
+    "winston": "3.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UtkarshYeolekar/web-scrapper-nodejs.git"
+  },
+  "author": "'Utkarsh <'utkarsh.yeolekar@gmail.com'> (http://www.letsblogitutkarsh.in/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/UtkarshYeolekar/web-scrapper-nodejs/issues"
+  },
+  "homepage": "https://github.com/UtkarshYeolekar/web-scrapper-nodejs#readme"
+}
