@@ -4,19 +4,41 @@ const logger = require('../logger');
 async function parseHTMLContent(html) {
     try {
 
+        const scrapedData = [];
+        const tableHeaders = [];
+
         logger.info('Parsing HTML');
 
-        let data = [];
         const $ = cheerio.load(html);
-        $('table.itemlist tr td:nth-child(3)')
-            .each((i, elem) => {
-                data.push({
-                    title: $(elem).text(),
-                    link: $(elem).find('a.storylink').attr('href')
+
+        $("table:nth-child(4) tr").each((index, element) => {
+
+            // Getting Table Headers
+            if (index === 0) {
+                const ths = $(element).find("td");
+                $(ths).each((i, element) => {
+                    tableHeaders.push(
+                        $(element).text().trim().replace(/ +/g, "")
+                    );
                 });
+                return true;
+            }
+
+            // Getting Table Rows Data
+            const tds = $(element).find("td");
+
+            const tableRow = {};
+
+            $(tds).each((i, element) => {
+                tableRow[tableHeaders[i]] = $(element).text().trim();
             });
+
+            scrapedData.push(tableRow);
+
+        });
+
         logger.info('Parsing HTML Completed');
-        return data;
+        return scrapedData;
     }
     catch (exception) {
         logger.error('Exception Occured While Parsing HTML Content', exception);

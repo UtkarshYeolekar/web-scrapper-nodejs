@@ -5,7 +5,7 @@ const logger = require('../logger');
 async function ScrapHTMLPage(PageURL){
     let pageContent = await loadAndExportHTMLPageContent(PageURL);
     let parseResponse = await parseHTMLContent(pageContent);
-    logger.info('Parsing Completed');
+    logger.info('Parsing Completed', parseResponse);
 }
 
 module.exports = ScrapHTMLPage;
