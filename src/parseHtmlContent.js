@@ -29,8 +29,23 @@ async function parseHTMLContent(html) {
 
             const tableRow = {};
 
+            /* From all the columns in the rows, only fetching the required ones;
+
+             * 1. The condition i < tableHeaders, will restrict from failing, if the COLUMN
+             *    COUNT is not equal for table headers and table rows.
+             * 
+             * 2. Only taking values, if current column index belongs to the required table headers.
+             * 
+             *  Note ; We already trimmed the headers name while fetching, as it was returning spaces.
+             */
+
             $(tds).each((i, element) => {
-                tableRow[tableHeaders[i]] = $(element).text().trim();
+                if( i< tableHeaders.length &&
+                      ( tableHeaders[i].includes("ProjectName")
+                      || tableHeaders[i].includes("ProjectNo") 
+                      || tableHeaders[i].includes("Status"))
+                      )
+                    tableRow[tableHeaders[i]] = $(element).text().trim();
             });
 
             scrapedData.push(tableRow);
