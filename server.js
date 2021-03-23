@@ -1,6 +1,6 @@
-const pageURL = 'https://news.ycombinator.com/';
+require('dotenv').config()
+const pageURL = process.env.PAGEURL || 'https://news.ycombinator.com/';
 const scrapHTMLPage = require('./src/index');
-require('./logger');
 
 async function startup() {
     await scrapHTMLPage(pageURL);

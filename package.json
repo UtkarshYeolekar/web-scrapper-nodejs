@@ -5,6 +5,8 @@
   "main": "server.js",
   "dependencies": {
     "cheerio": "1.0.0-rc.5",
+    "dotenv": "8.2.0",
+    "mssql": "6.3.1",
     "puppeteer": "8.0.0",
     "winston": "3.3.3"
   },
