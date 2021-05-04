@@ -38,6 +38,7 @@ let pool = null;
        } catch ( err ) {
            // error connecting to SQL Server
            pool = null;
+           throw err;
        }
    };
 

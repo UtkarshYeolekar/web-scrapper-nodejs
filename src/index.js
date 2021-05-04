@@ -7,7 +7,7 @@ async function ScrapHTMLPage(PageURL){
     let pageContent = await loadAndExportHTMLPageContent(PageURL);
     let parseResponse = await parseHTMLContent(pageContent);
     await updateProjectInfo(parseResponse);
-    logger.info('Parsing Completed', parseResponse);
+    //logger.info('Parsing Completed', parseResponse);
 }
 
 module.exports = ScrapHTMLPage;
